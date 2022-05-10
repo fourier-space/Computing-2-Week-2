@@ -231,7 +231,7 @@ describe("Question 4", function () {
 
     it(
         "A single number range, " +
-        "that is a square number" +
+        "that is a square number " +
         "returns an array containing that number",
         function () {
             const a = 25;
@@ -249,7 +249,7 @@ describe("Question 4", function () {
 
     it(
         "A single number range, " +
-        "that is not a square number" +
+        "that is not a square number " +
         "returns an the empty array",
         function () {
             const a = 24;
@@ -329,7 +329,7 @@ describe("Question 6", function () {
     );
 
     it(
-        "Given a string and a character" +
+        "Given a string and a character, " +
         "appending that character to the string and shuffling" +
         "then passing the original and new string to missing_character",
         "returns that character",
