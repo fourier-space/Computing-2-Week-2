@@ -3,7 +3,17 @@ import R from "./ramda.js";
 // === Map ===
 const i_s = R.range(0, 40);
 
-debugger;
+const x_s = i_s.map(function (i) {
+    return (i - 20) / 5;
+});
+
+const f = function (x) {
+    return Math.exp(-x * x / 2);
+};
+
+const f_s = x_s.map(f);
+
+console.log(f_s);
 
 const friends = [
     {"name": "Alex", "group": "Music"},
@@ -11,6 +21,18 @@ const friends = [
     {"name": "Caroł", "group": "Music"},
     {"name": "Dale", "group": "Karate"}
 ];
+
+const invites = friends.map(function (friend) {
+    let day;
+    if (friend.group === "Music") {
+        day = "Saturday";
+    } else {
+        day = "Sunday";
+    }
+    return `Hello ${friend.name}, please come on ${day}`
+});
+
+console.log(invites);
 
 // === Filter ===
 
@@ -23,9 +45,21 @@ const students = [
     {"student": "Frankie", "elective": "Design Psychology"}
 ];
 
+const des_psych_students = students.filter(function (student) {
+    return student.elective === "Design Psychology";
+}).map(function (student) {
+    return student.student;
+});
+
+debugger;
+
 // === Reduce ===
 
 const j_s = i_s.filter((i) => i > 0 && i <= 10);
+
+const sum = j_s.reduce(function (a, x) {
+    return a + x;
+});
 
 const words = [
     "Hello",
@@ -39,3 +73,9 @@ const words = [
     "all",
     "these"
 ];
+
+const adele = words.map((word) => word + " ").reduce(function (a, x) {
+    return a + x;
+})
+
+console.log(adele);
