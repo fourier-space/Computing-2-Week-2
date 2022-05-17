@@ -29,7 +29,7 @@ const invites = friends.map(function (friend) {
     } else {
         day = "Sunday";
     }
-    return `Hello ${friend.name}, please come on ${day}`
+    return `Hello ${friend.name}, please come on ${day}`;
 });
 
 console.log(invites);
@@ -51,6 +51,8 @@ const des_psych_students = students.filter(function (student) {
     return student.student;
 });
 
+console.log(des_psych_students);
+
 debugger;
 
 // === Reduce ===
@@ -60,6 +62,8 @@ const j_s = i_s.filter((i) => i > 0 && i <= 10);
 const sum = j_s.reduce(function (a, x) {
     return a + x;
 });
+
+console.log(sum);
 
 const words = [
     "Hello",
@@ -76,6 +80,6 @@ const words = [
 
 const adele = words.map((word) => word + " ").reduce(function (a, x) {
     return a + x;
-})
+});
 
 console.log(adele);
