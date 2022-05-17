@@ -1,4 +1,4 @@
-import Exam_questions from "../common/Exam_questions.js";
+import Exam_questions from "../common/Exam_questions_FP.js";
 import R from "../common/ramda.js";
 
 const shortest_word = Exam_questions.q1.shortest_word;
@@ -166,7 +166,7 @@ describe("Question 3", function () {
             results.forEach(function (result, i) {
                 if (result !== expecteds[i]) {
                     throw new Error(
-                        `For an input of ${inputs[i]}, ${result} was returned,` +
+                        `For an input of ${inputs[i]},${result} was returned,` +
                         `when ${expecteds[i]} was expected`
                     );
                 }
@@ -284,8 +284,6 @@ describe("Question 5", function () {
         }
     );
 
-
-    const nearly_equals = (x) => (y) => Math.abs(x - y) <= 1e-8;
     it(
         "The powers property contains exponentiated elements of numbers.",
         function () {
