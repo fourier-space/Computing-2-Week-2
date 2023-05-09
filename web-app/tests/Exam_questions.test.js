@@ -1,5 +1,5 @@
-import Exam_questions from "../common/Exam_questions_FP.js";
-import R from "../common/ramda.js";
+import Exam_questions from "../Exam_questions.js";
+import R from "../ramda.js";
 
 const shortest_word = Exam_questions.q1.shortest_word;
 describe("Question 1", function () {

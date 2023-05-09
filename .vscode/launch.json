@@ -6,48 +6,12 @@
     "configurations": [
         {
             "name": "Debug Module",
-            "type": "pwa-node",
+            "type": "node",
             "request": "launch",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/web-app/common/Exam_questions.js"
+            "program": "${workspaceFolder}/web-app/Exam_questions.js"
         },
-        {
-            "name": "Generate Docs",
-            "command": "jsdoc -c jsdoc.json; exit",
-            "request": "launch",
-            "type": "node-terminal"
-        },
-        {
-            "name": "Server ­– Node",
-            "type": "pwa-node",
-            "request": "launch",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${workspaceFolder}/web-app/server/server.js"
-        },
-        {
-            "name": "Browser – Firefox",
-            "type": "firefox",
-            "request": "launch",
-            "reAttach": true,
-            "reloadOnAttach": true,
-            "url": "http://localhost:8080/index.html",
-            "pathMappings": [
-                {
-                    "url": "http://localhost:8080/common",
-                    "path": "${workspaceFolder}/web-app/common"
-                },
-                {
-                    "url": "http://localhost:8080/",
-                    "path": "${workspaceFolder}/web-app/browser"
-                }
-            ],
-            "preferences": {
-                "security.fileuri.strict_origin_policy": false
-            }
-        }
     ]
 }

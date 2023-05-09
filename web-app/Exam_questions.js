@@ -1,10 +1,11 @@
-import R from "./ramda.js";
+// import R from "./ramda.js";
 
 /**
  * This file is an adaption of the Computing 1 exam into Javascript.
  * @namespace Exam_questions
  * @author Pietro Ferraro, adapted to Javascript by A. Freddie Page
  * @version 2021/22
+ * @property {object} q1
  */
 const Exam_questions = {
     "q1": {},
@@ -26,15 +27,6 @@ const Exam_questions = {
  * @example shortest_word(["hello", "cat", "ok", "12345"]) // "ok";
  */
 Exam_questions.q1.shortest_word = function (word_array) {
-    if (word_array.length === 0) {
-        return;
-    }
-    return word_array.reduce(function (accumulator, current_value) {
-        if (accumulator.length <= current_value.length) {
-            return accumulator;
-        }
-        return current_value;
-    });
 };
 
 /**
@@ -48,19 +40,6 @@ Exam_questions.q1.shortest_word = function (word_array) {
  * @example sum_of_numbers(["hello", "cat", 2, true, 17, undefined]) // 19;
  */
 Exam_questions.q2.sum_of_numbers = function (array_of_any_type) {
-    return array_of_any_type.filter(
-        (x) => typeof x === "number" && !Number.isNaN(x)
-    ).reduce(
-        (a, x) => a + x,
-        0 // Initial accumulator value.
-    );
-};
-
-const is_palindrome = function (text) {
-    const stripped = text.replaceAll(" ", "");
-    const characters = [...stripped];
-    const reverse_stripped = characters.reverse().join("");
-    return stripped === reverse_stripped;
 };
 
 /**
@@ -85,17 +64,6 @@ const is_palindrome = function (text) {
  *   // "never odd or even"
  */
 Exam_questions.q3.longest_palindrome = function (string_array) {
-    if (string_array.length === 0) {
-        return;
-    }
-    return string_array.filter(is_palindrome).reduce(
-        function (accumulator, current_value) {
-            if (accumulator.length >= current_value.length) {
-                return accumulator;
-            }
-            return current_value;
-        }
-    );
 };
 
 /**
@@ -110,9 +78,6 @@ Exam_questions.q3.longest_palindrome = function (string_array) {
  * @example perfect_squares(2, 16) // [4, 9, 16]
  */
 Exam_questions.q4.perfect_squares = function (a, b) {
-    return R.range(a, b + 1).filter(function (x) {
-        return Number.isInteger(x ** 0.5);
-    });
 };
 
 /**
@@ -129,15 +94,6 @@ Exam_questions.q4.perfect_squares = function (a, b) {
  *   // {"numbers": [1, 3, 5, 6], "powers": [1, 9, 25, 36]}
  */
 Exam_questions.q5.power_object = function (numbers, exponent) {
-    return {
-        "numbers": numbers,
-        "powers": numbers.map((x) => x ** exponent)
-    };
-};
-
-const sorted_characters = function (string) {
-    const characters = [...string];
-    return characters.sort();
 };
 
 /**
@@ -156,22 +112,6 @@ const sorted_characters = function (string) {
  * @example missing_character("hello", "hellonn") // undefined
  */
 Exam_questions.q6.missing_character = function (short_string, long_string) {
-    if (long_string.length !== short_string.length + 1) {
-        return;
-    }
-    const short_characters = sorted_characters(short_string);
-    const long_characters = sorted_characters(long_string);
-
-    let result;
-    // .some can be used like forEach,
-    // but will terminate early if true is returned.
-    long_characters.some(function (character, index) {
-        if (short_characters[index] !== character) {
-            result = character;
-            return true;
-        }
-    });
-    return result;
 };
 
 /**
@@ -186,11 +126,6 @@ Exam_questions.q6.missing_character = function (short_string, long_string) {
  * @example even_digits(2, 27) // [2, 4, 6, 8, 20, 22, 24, 26]
  */
 Exam_questions.q7.even_digits = function (a, b) {
-    const range = R.range(a, b + 1);
-    return range.filter(function (number) {
-        const digits = [...String(number)];
-        return digits.every((digit) => Number(digit) % 2 === 0);
-    });
 };
 
 /**
@@ -208,5 +143,7 @@ Exam_questions.q7.even_digits = function (a, b) {
 Exam_questions.q8.age_question = function (name = "Andrea", age = 19) {
     return `Hello ${name}, is your age ${age}?`;
 };
+
+debugger;
 
 export default Object.freeze(Exam_questions);

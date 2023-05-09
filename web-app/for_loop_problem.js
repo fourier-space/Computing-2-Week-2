@@ -1,7 +1,9 @@
 import R from "./ramda.js";
 
+let i;
+
 const buttons = [];
-for (let i = 0; i < 10; i += 1) {
+for (i = 0; i < 10; i += 1) {
     // We're not in the browser, so I'm using this empty object instead.
     const new_button = {};
 
