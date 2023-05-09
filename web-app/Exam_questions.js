@@ -144,6 +144,4 @@ Exam_questions.q8.age_question = function (name = "Andrea", age = 19) {
     return `Hello ${name}, is your age ${age}?`;
 };
 
-debugger;
-
 export default Object.freeze(Exam_questions);
