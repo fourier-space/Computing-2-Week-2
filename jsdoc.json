@@ -4,7 +4,7 @@
     },
     "source": {
         "include": [
-            "web-app/common/Exam_questions.js"
+            "web-app/Exam_questions.js"
         ],
         "includePattern": "\\.js$",
         "excludePattern": "(node_modules/|docs)"
