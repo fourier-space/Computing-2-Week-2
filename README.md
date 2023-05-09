@@ -19,4 +19,4 @@ to solve these problems.
 We looked at these methods using a
 [spreadsheet example](Map reduce filter.xls)
 
-A set of unit tests are provided. 
+A set of unit tests are provided.
