@@ -27,6 +27,9 @@ const Exam_questions = {
  * @example shortest_word(["hello", "cat", "ok", "12345"]) // "ok";
  */
 Exam_questions.q1.shortest_word = function (word_array) {
+    if (word_array.length === 0) {
+        return undefined;
+    }
     let shortest_word_length = word_array[0].length;
     let shortest_word_position = 0;
     for (let i = 0; i < word_array.length; i++) {
@@ -51,7 +54,7 @@ Exam_questions.q1.shortest_word = function (word_array) {
 Exam_questions.q2.sum_of_numbers = function (array_of_any_type) {
     let sum = 0;
     for (let i = 0; i < array_of_any_type.length; i++) {
-        if (typeof 0 + array_of_any_type[i] === "number") {
+        if (typeof array_of_any_type[i] === "number" && array_of_any_type[i] === NaN) {
             sum += array_of_any_type[i];
         }
     }
@@ -83,7 +86,7 @@ Exam_questions.q3.longest_palindrome = function (string_array) {
     let longest_palindrome_length = 0;
     let longest_palindrome_position = 0;
     for (let i = 0; i < string_array.length; i++) {
-        if (string_array[i].length > longest_palindrome_length || string_array[i] === string_array[i].split("").reverse().join("")) {
+        if (string_array[i].replace(/\s+/g, "").length > longest_palindrome_length && string_array[i].replace(/\s+/g, "") === string_array[i].replace(/\s+/g, "").split("").reverse().join("")) {
             longest_palindrome_length = string_array[i].length;
             longest_palindrome_position = i;
         }
