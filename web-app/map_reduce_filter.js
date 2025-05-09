@@ -1,18 +1,22 @@
 import R from "./ramda.js";
 
-// === Map ===
-const i_s = R.range(0, 40);
-
-const x_s = i_s.map(function (i) {
-    return (i - 20) / 5;
-});
-
 const f = function (x) {
     return Math.exp(-x * x / 2);
 };
 
-const f_s = x_s.map(f);
+// === Map ===
+const i_s = R.range(0, 40);
 
+const x_s = i_s.map((i) => i * 10 / 40 - 5);
+
+
+const scale = function (i) {
+    return i * 10 / 40 - 5;
+}
+
+
+
+const f_s = x_s.map(f);
 console.log(f_s);
 
 const friends = [
@@ -22,17 +26,25 @@ const friends = [
     {"name": "Dale", "group": "Karate"}
 ];
 
-const invites = friends.map(function (friend) {
-    let day;
+const day_of_friend = function (friend) {
     if (friend.group === "Music") {
-        day = "Saturday";
-    } else {
-        day = "Sunday";
+        return "Sunday";
     }
-    return `Hello ${friend.name}, please come on ${day}`;
-});
+    return "Saturday";
+};
 
+const shout = function (string) {
+    return string.toUpperCase();
+};
+
+const invites = friends.map(function (friend) {
+    return (
+        `Hello ${shout(friend.name)},` +
+        ` please come to my party on ${day_of_friend(friend)}`
+    );
+});
 console.log(invites);
+
 
 // === Filter ===
 
@@ -45,25 +57,19 @@ const students = [
     {"student": "Frankie", "elective": "Design Psychology"}
 ];
 
-const des_psych_students = students.filter(function (student) {
-    return student.elective === "Design Psychology";
-}).map(function (student) {
-    return student.student;
-});
 
-console.log(des_psych_students);
+const is_enroled_on = function (elective) {
+    return function (student) {
+        return student.elective === elective;
+    };
+};
 
-debugger;
+const elective_students = students.filter(
+    is_enroled_on("Design Psychology")
+);
+
 
 // === Reduce ===
-
-const j_s = i_s.filter((i) => i > 0 && i <= 10);
-
-const sum = j_s.reduce(function (a, x) {
-    return a + x;
-});
-
-console.log(sum);
 
 const words = [
     "Hello",
@@ -78,8 +84,23 @@ const words = [
     "these"
 ];
 
-const adele = words.map((word) => word + " ").reduce(function (a, x) {
-    return a + x;
+let a = 0;
+words.forEach(function (word) {
+    if (word.length > a) {
+        a = word.length;
+    }
 });
 
-console.log(adele);
+
+const lyrics = words.reduce(function (a, word) {
+    if (a >= word.length) {
+        return a;
+    }
+    return word.length;
+}, 0);
+console.log(lyrics);
+
+// Running code in exam questions.
+// npm install on every repo
+// mocha.rc
+ 

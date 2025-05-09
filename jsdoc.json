@@ -4,7 +4,7 @@
     },
     "source": {
         "include": [
-            "web-app/Exam_questions.js"
+            "web-app/Module.js"
         ],
         "includePattern": "\\.js$",
         "excludePattern": "(node_modules/|docs)"
@@ -21,9 +21,23 @@
     },
     "templates": {
         "cleverLinks": true,
-        "monospaceLinks": false
+        "monospaceLinks": false,
+        "default": {
+            "staticFiles": {
+                "include": [
+                    "./.docs-template/custom.css"
+                ]
+            }
+        }
     },
     "docdash": {
-        "collapse": false
+        "scripts": [
+            "custom.css"
+        ],
+        "static": true,
+        "sort": true,
+        "collapse": false,
+        "typedefs": true,
+        "ShortenTypes": true
     }
 }

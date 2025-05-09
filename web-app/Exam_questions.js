@@ -67,7 +67,7 @@ Exam_questions.q3.longest_palindrome = function (string_array) {
 };
 
 /**
- * Write a function that, given two integer inputs a and b (with a > b),
+ * Write a function that, given two integer inputs a and b (with b ≥ a),
  * returns a list of all the numbers between a and b (a and b included)
  * whose square root is an integer.
  * @memberof! Exam_questions
