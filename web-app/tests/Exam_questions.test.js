@@ -1,5 +1,4 @@
 import Exam_questions from "../Exam_questions.js";
-import R from "../ramda.js";
 
 const shortest_word = Exam_questions.q1.shortest_word;
 describe("Question 1", function () {
@@ -189,6 +188,7 @@ describe("Question 3", function () {
         }
     );
 });
+
 
 const perfect_squares = Exam_questions.q4.perfect_squares;
 describe("Question 4", function () {
