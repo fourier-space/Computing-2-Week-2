@@ -82,7 +82,7 @@ Exam_questions.q2.sum_of_numbers = function (array_of_any_type) {
 Exam_questions.q3.longest_palindrome = function (string_array) {
     let longest_palindrome_length = 0;
     let longest_palindrome_position = 0;
-    for (let i = 0: i < string_array.length: i++) {
+    for (let i = 0; i < string_array.length; i++) {
         if (string_array[i].length > longest_palindrome_length || string_array[i] === string_array[i].split("").reverse().join("")) {
             longest_palindrome_length = string_array[i].length;
             longest_palindrome_position = i;
@@ -103,6 +103,13 @@ Exam_questions.q3.longest_palindrome = function (string_array) {
  * @example perfect_squares(2, 16) // [4, 9, 16]
  */
 Exam_questions.q4.perfect_squares = function (a, b) {
+    let perfect_squares = [];
+    for (let i = a; i <= b; i++) {
+        if (Math.sqrt(i) % 1 === 0) {
+            perfect_squares.push(i);
+        }
+    }
+    return perfect_squares;
 };
 
 /**
@@ -119,6 +126,14 @@ Exam_questions.q4.perfect_squares = function (a, b) {
  *   // {"numbers": [1, 3, 5, 6], "powers": [1, 9, 25, 36]}
  */
 Exam_questions.q5.power_object = function (numbers, exponent) {
+    let powers = [];
+    for (let i = 0; i < numbers.length; i++) {
+        powers.push(Math.pow(numbers[i], exponent));
+    }
+    return {
+        "numbers": numbers,
+        "powers": powers
+    };
 };
 
 /**
@@ -137,6 +152,21 @@ Exam_questions.q5.power_object = function (numbers, exponent) {
  * @example missing_character("hello", "hellonn") // undefined
  */
 Exam_questions.q6.missing_character = function (short_string, long_string) {
+    if (short_string.length + 1 !== long_string.length) {
+        return undefined;
+    }
+    let extra_character = "";
+    let extra_character_num = 0;
+    for (let i = 0; i < long_string.length; i++) {
+        if (!short_string.includes(long_string[i])) {
+            extra_character = long_string[i];
+            extra_character_num++;
+        }
+    }
+    if (extra_character_num === 1) {
+        return extra_character;
+    }
+    return undefined;
 };
 
 /**
@@ -151,6 +181,13 @@ Exam_questions.q6.missing_character = function (short_string, long_string) {
  * @example even_digits(2, 27) // [2, 4, 6, 8, 20, 22, 24, 26]
  */
 Exam_questions.q7.even_digits = function (a, b) {
+    let even_digits = [];
+    for (let i = 0 + a; i <= 0 + b; i++) {
+        if (i % 2 ===0) {
+            even_digits.pusb(i);
+        }
+    }
+    return even_digits;
 };
 
 /**
