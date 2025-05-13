@@ -35,10 +35,6 @@ const students = [
     {"student": "Frankie", "elective": "Design Psychology"}
 ];
 
-const enrolled_on_d4am = function (student) {
-    return student.elective === "Additive Manufacture";
-};
-
 // const enrolled_on_d4am = function (student) {
 //     if (student.elective === "Additive Manufacture") {
 //         return true;
@@ -46,6 +42,10 @@ const enrolled_on_d4am = function (student) {
 //         return false;
 //     }
 // };
+
+const enrolled_on_d4am = function (student) {
+    return student.elective === "Additive Manufacture";
+};
 
 const d4am_students = students.filter(enrolled_on_d4am);
 
