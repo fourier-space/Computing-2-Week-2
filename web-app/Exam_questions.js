@@ -54,7 +54,7 @@ Exam_questions.q1.shortest_word = function (word_array) {
 Exam_questions.q2.sum_of_numbers = function (array_of_any_type) {
     let sum = 0;
     for (let i = 0; i < array_of_any_type.length; i++) {
-        if (typeof array_of_any_type[i] === "number" && array_of_any_type[i] === NaN) {
+        if (typeof array_of_any_type[i] === "number" && array_of_any_type[i] % 1 === 0) {
             sum += array_of_any_type[i];
         }
     }
