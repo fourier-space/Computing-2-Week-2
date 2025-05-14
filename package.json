@@ -2,7 +2,7 @@
   "name": "computing-2-submission",
   "type": "module",
   "version": "1.0.0",
-  "description": "",
+  "description": "In this exercise we will get familiar with Javascript and it's [array functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) by re-attempting the Computing 1 exam in Javascript.",
   "main": "web-app/server/server.js",
   "author": "",
   "license": "ISC",
@@ -12,5 +12,20 @@
   },
   "dependencies": {
     "ramda": "^0.30.1"
-  }
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "mocha tests/**/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZkKarlll/Computing-2-Week-2.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/ZkKarlll/Computing-2-Week-2/issues"
+  },
+  "homepage": "https://github.com/ZkKarlll/Computing-2-Week-2#readme"
 }
