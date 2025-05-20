@@ -23,6 +23,20 @@ const friends = [
     {"name": "Dale", "group": "Karate"}
 ];
 
+const day_of_party_for_group = function (group) {
+    if (group === "Music") { // Exceptional case. Return early.
+        return "Saturday";
+    }
+    return "Sunday"; // Default path (Happy Path)
+};
+
+const create_invitation = function (friend) {
+    const day = day_of_party_for_group(friend.group);
+    return `Hello ${friend.name}, please come to my party on ${day}! xxx --FP`;
+};
+
+const invitiations = friends.map(create_invitation);
+
 
 // === Filter ===
 
@@ -47,9 +61,33 @@ const enrolled_on_d4am = function (student) {
     return student.elective === "Additive Manufacture";
 };
 
-const d4am_students = students.filter(enrolled_on_d4am);
+const enrolled_on_subject = function (subject) {
+    return function (student) {
+        return student.elective === subject;
+    };
+};
+
+debugger
+
+const d4am_students = students.filter(
+    enrolled_on_subject("Additive Manufacture")
+);
+
+
 
 // === Reduce ===
+
+const single_digits = R.range(1, 10);
+
+// const plus = function (a, x) {
+//     return a + x;
+// };
+
+const plus = (a, x) => a + x;
+
+// const suduku_secret = single_digits.reduce(plus);
+
+const suduku_secret = single_digits.reduce((a, x) => a + x);
 
 const words = [
     "Hello",
@@ -69,3 +107,18 @@ const words = [
     "meet"
 ];
 
+const concat = function (a, string) {
+    return a + string;
+};
+
+const add_space = function (word) {
+    return `${word} `;
+};
+
+const add_full_stop = function (string) {
+    return `${string}.`;
+}
+
+const lyrics = add_full_stop(words.map(add_space).reduce(concat).trim());
+
+debugger;
