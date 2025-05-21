@@ -7,13 +7,27 @@ const scale = function (i) {
     return i * 4 / 20 - 4;
 };
 
-const x_s = i_s.map(scale);
+// const x_s = i_s.map(scale);
 
 const f = function (x) {
     return Math.exp(-x * x / 2);
 };
 
-const f_s = x_s.map(f);
+const compose = function (outer, inner) {
+    return function (value) {
+        return outer(inner(value));
+    };
+};
+
+// const f_from_i = function (i) {
+//     return compose(f, scale)(i);
+// };
+
+const f_from_i = compose(f, scale);
+
+// const f_s = x_s.map(f);
+
+const f_s = i_s.map(compose(f, scale));
 
 
 const friends = [
@@ -35,7 +49,16 @@ const create_invitation = function (friend) {
     return `Hello ${friend.name}, please come to my party on ${day}! xxx --FP`;
 };
 
-const invitiations = friends.map(create_invitation);
+// const invitiations = friends.map(create_invitation);
+
+// const invitiations = R.map(create_invitation, friends);
+
+const create_invitations = R.map(create_invitation);
+
+const invitiations = create_invitations(friends);
+
+
+
 
 
 // === Filter ===
@@ -67,7 +90,7 @@ const enrolled_on_subject = function (subject) {
     };
 };
 
-debugger
+
 
 const d4am_students = students.filter(
     enrolled_on_subject("Additive Manufacture")
@@ -117,8 +140,29 @@ const add_space = function (word) {
 
 const add_full_stop = function (string) {
     return `${string}.`;
-}
+};
 
-const lyrics = add_full_stop(words.map(add_space).reduce(concat).trim());
+// const lyrics = add_full_stop(words.map(add_space).reduce(concat).trim());
+
+// const lyrics = R.compose(
+//     add_full_stop,
+//     R.trim,
+//     R.reduce(concat, ""),
+//     R.map(add_space)
+// )(words);
+
+
+const lyrics_from_words = R.pipe(
+    R.map(add_space),
+    R.reduce(concat, ""),
+    R.trim,
+    add_full_stop
+);
+
+const lyrics = lyrics_from_words(words);
+
+debugger;
+
+// add_full_stop(words.map(add_space).reduce(concat).trim());
 
 debugger;
